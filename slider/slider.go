@@ -75,6 +75,7 @@ func defaultOnError(err error) {
 
 func (s *Slider) Show(ctx context.Context, b *bot.Bot, chatID any, opts ...ShowOption) (*models.Message, error) {
 	slide := s.slides[s.current]
+	s.currentCustomId = slide.CustomId
 
 	sendParams := &bot.SendPhotoParams{
 		ChatID:      chatID,
