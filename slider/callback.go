@@ -48,7 +48,7 @@ func (s *Slider) callback(ctx context.Context, b *bot.Bot, update *models.Update
 				s.onError(errDelete)
 			}
 		}
-		s.onSelect(ctx, b, update.CallbackQuery.Message, s.current)
+		s.onSelect(ctx, b, update.CallbackQuery.Message, s.current, s.currentCustomId)
 		s.callbackAnswer(ctx, b, update.CallbackQuery)
 		return
 	case cmdCancel:
@@ -69,6 +69,7 @@ func (s *Slider) callback(ctx context.Context, b *bot.Bot, update *models.Update
 	}
 
 	slide := s.slides[s.current]
+	s.currentCustomId = slide.CustomId
 
 	editParams := &bot.EditMessageMediaParams{
 		ChatID:    update.CallbackQuery.Message.Message.Chat.ID,
