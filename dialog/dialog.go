@@ -42,6 +42,10 @@ func New(b *bot.Bot, nodes []Node, opts ...Option) *Dialog {
 	return p
 }
 
+func (d *Dialog) SetNodes(nodes []Node) {
+	d.nodes = nodes
+}
+
 // Prefix returns the prefix of the widget
 func (d *Dialog) Prefix() string {
 	return d.prefix
