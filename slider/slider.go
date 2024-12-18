@@ -98,3 +98,7 @@ func (s *Slider) Show(ctx context.Context, b *bot.Bot, chatID any, opts ...ShowO
 
 	return b.SendPhoto(ctx, sendParams)
 }
+
+func (s *Slider) GetCallbackHandlerId() string {
+	return s.callbackHandlerID
+}
